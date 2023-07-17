@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zhouhao.dao.MemberDao">
+    <select id="findByTelephone" resultType="com.zhouhao.pojo.Member">
+        select * from t_member
+        where phoneNumber = #{telephone}
+        limit 1
+    </select>
+    <insert id="add">
+        insert into t_member(phoneNumber, regTime)
+        values(#{member.phoneNumber}, #{member.regTime})
+    </insert>
+
+    <select id="selectReport" resultType="java.util.Map">
+        SELECT regTime, COUNT(*) count FROM `t_member`
+        GROUP BY regTime
+    </select>
+</mapper>

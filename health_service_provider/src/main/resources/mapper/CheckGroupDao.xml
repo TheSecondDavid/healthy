@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhouhao.dao.CheckGroupDao">
+    <resultMap id="getById" type="com.zhouhao.pojo.CheckGroup">
+        <id column="id" property="id"></id>
+        <association property="checkItems" column="id" select="com.zhouhao.dao.CheckGroupDao.getCheckitems"></association>
+    </resultMap>
+    <insert id="addCheckGroup" useGeneratedKeys="true" keyProperty="id">
+        insert into t_checkgroup(code, name, helpCode, sex, remark, attention)
+        values (#{code}, #{name}, #{helpCode}, #{sex}, #{remark}, #{attention})
+    </insert>
+    <insert id="setRelation">
+        insert into t_checkgroup_checkitem
+        values (#{id}, #{checkitemId})
+    </insert>
+    <select id="query" resultType="com.zhouhao.pojo.CheckGroup">
+        select * from t_checkgroup
+        <where>
+            <if test="queryString != null and queryString != ''">
+                and name like concat('%', #{queryString}, '%') or remark like concat('%', #{queryString}, '%')
+            </if>
+        </where>
+    </select>
+    <select id="getById" resultMap="getById">
+        select *
+        from t_checkgroup
+        where id = #{id};
+    </select>
+    <select id="getCheckitems" resultType="com.zhouhao.pojo.CheckItem">
+        select * from t_checkitem
+        where id in(
+        select checkitem_id
+        from t_checkgroup_checkitem
+        where checkgroup_id = #{id})
+    </select>
+    <update id="update">
+        update t_checkgroup
+        set code = #{code},
+            name = #{name},
+            helpCode = #{helpCode},
+            sex = #{sex},
+            remark = #{remark},
+            attention = #{attention}
+        where id = #{id}
+    </update>
+    <delete id="deleteRelation">
+        delete
+        from t_checkgroup_checkitem
+        where checkgroup_id = #{id}
+    </delete>
+    <select id="queryAll" resultType="com.zhouhao.pojo.CheckGroup">
+        select * from t_checkgroup
+    </select>
+    <select id="findBySetMealId" resultMap="getById">
+        SELECT * FROM t_checkgroup WHERE id in (SELECT checkgroup_id FROM t_setmeal_checkgroup WHERE setmeal_id = #{id})
+    </select>
+</mapper>

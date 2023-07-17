@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/health_backend" />
+    <file type="web" url="file://$PROJECT_DIR$/health_mobile" />
+    <file type="web" url="file://$PROJECT_DIR$/health_moblie" />
+    <file type="web" url="file://$PROJECT_DIR$/health_service_provider" />
+    <file type="web" url="file://$PROJECT_DIR$/../springsecurity/springsecurity" />
+    <file type="web" url="file://$PROJECT_DIR$/../springsecurity2" />
+    <type id="Spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../qiniuSDK/pom.xml" />
+        <option value="$PROJECT_DIR$/aliyunMessage/pom.xml" />
+        <option value="$PROJECT_DIR$/freemarker/pom.xml" />
+        <option value="$PROJECT_DIR$/../springsecurity/springsecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/../springsecurity2/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/health_moblie/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

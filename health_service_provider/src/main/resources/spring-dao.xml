@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--包扫描-->
+    <context:component-scan base-package="com.zhouhao" />
+    <!--静态资源放行-->
+    <mvc:default-servlet-handler />
+    <!--开启注解-->
+    <mvc:annotation-driven/>
+
+    <!--数据源配置-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/zhouhao_health?serverTimezone=Asia/Shanghai"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <!--初始化连接数量:根据你项目的并发进行评估-->
+        <!--最少连接池的个数-->
+        <property name="minIdle" value="5"/>
+        <!--初始的连接池的个数-->
+        <property name="initialSize" value="5"/>
+        <!--最大的连接个数-->
+        <property name="maxActive" value="10"/>
+        <!--超过的最大连接池个数，等待时间 单位是毫秒-->
+        <property name="maxWait" value="3000"/>
+    </bean>
+
+    <bean id="sessionFactory"  class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--设置数据源-->
+        <property name="dataSource" ref="dataSource" />
+        <!--设置mybatis映射文件的路径-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml" />
+        <property name="configLocation" value="classpath:SqlMapConfig.xml" />
+    </bean>
+
+    <!--为dao接口生成代理实现类-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zhouhao.dao" />
+    </bean>
+</beans>

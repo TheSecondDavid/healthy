@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Springsecurity" removed="false">
+          <file>file://$MODULE_DIR$/../springsecurity2/src/main/resources/springsecurity.xml</file>
+        </fileset>
+        <fileset id="web springmvc servlet context" name="MVC springmvc servlet context" removed="true">
+          <file>file://$MODULE_DIR$/../springsecurity2/src/main/resources/springsecurity.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
+</module>

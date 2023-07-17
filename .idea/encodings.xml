@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/aliyunMessage/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/aliyunMessage/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/freemarker/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/freemarker/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_backend/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_backend/src/main/java/com/zhouhao/controller/OrderSettingController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_backend/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_mobile/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_mobile/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_moblie/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_moblie/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_service_provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health_service_provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springsecurity2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springsecurity2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../qiniuSDK/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../qiniuSDK/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springsecurity/springsecurity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springsecurity/springsecurity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springsecurity2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springsecurity2/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

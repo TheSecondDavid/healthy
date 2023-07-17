@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhouhao.dao.OrderDao">
+    <insert id="order" useGeneratedKeys="true" keyProperty="id">
+        insert into t_member(fileNumber, name, sex, idCard,	phoneNumber, regTime, password,	email, birthday, remark)
+        values (#{fileNumber},#{name},#{sex},#{idCard},#{phoneNumber},#{regTime},#{password},#{email},#{birthday},#{remark})
+    </insert>
+    <select id="find" resultType="com.zhouhao.pojo.Member">
+        select * from t_member
+        where idCard = #{idCard}
+    </select>
+    <select id="realfind" resultType="com.zhouhao.pojo.Order">
+        select * from t_order
+        where member_id = #{memberId}
+        and orderDate = #{orderDate}
+        and setmeal_id = #{setmealId}
+    </select>
+    <insert id="realOrder">
+        insert into t_order(member_id, orderDate, orderType, orderStatus, setmeal_id)
+        values(#{memberId}, #{orderDate}, #{orderType}, #{orderStatus}, #{setmealId})
+    </insert>
+    <select id="findById" resultType="java.util.Map">
+        select t_order.orderType, t_order.orderDate, t_member.name member, t_setmeal.name setmeal
+        from t_order, t_member, t_setmeal
+        where t_order.id = #{id}
+                and t_order.member_id = t_member.id
+                and t_order.setmeal_id = t_setmeal.id
+    </select>
+    <select id="findByYuyue" resultType="com.zhouhao.pojo.Order">
+        select * from t_order
+        where orderDate = #{orderDate}
+        and member_id = #{memberId}
+    </select>
+    <select id="getOrderNumbers" resultType="java.util.Map">
+        SELECT t_setmeal.`name`, count(*)
+        FROM t_setmeal left JOIN t_order
+                                 ON t_setmeal.id = t_order.setmeal_id
+        GROUP BY t_setmeal.`name`
+        ORDER BY t_setmeal.`name`
+    </select>
+</mapper>

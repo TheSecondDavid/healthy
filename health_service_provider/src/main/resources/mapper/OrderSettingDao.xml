@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhouhao.dao.OrderSettingDao">
+    <insert id="save">
+        insert into t_ordersetting(orderDate, number)
+        values(#{date}, #{num})
+    </insert>
+    <insert id="insert">
+        insert into t_ordersetting(orderDate, number)
+        values(#{date}, #{num})
+    </insert>
+    <update id="update">
+        update t_ordersetting
+        set number = #{num}
+        where orderDate = #{date}
+    </update>
+    <update id="update2">
+        update t_ordersetting
+        set reservations = #{reservations},
+            number = #{num}
+        where orderDate = #{date}
+    </update>
+    <select id="getOrder" resultType="com.zhouhao.pojo.OrderSetting">
+        SELECT * FROM t_ordersetting
+        where orderDate BETWEEN CONCAT(#{year},  '-' , #{month},  '-1') and concat(#{year},  '-' , #{month} , '-31')
+    </select>
+    <select id="getDayOrder" resultType="com.zhouhao.pojo.OrderSetting">
+        select * from t_ordersetting
+        where orderDate = #{date}
+    </select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhouhao.dao.SetMealDao">
+
+    <resultMap type="com.zhouhao.pojo.Setmeal" id="findById">
+        <id property="id" column="id"/>
+        <association property="checkGroups" select="com.zhouhao.dao.CheckGroupDao.findBySetMealId" column="id"></association>
+    </resultMap>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into t_setmeal(name, code, helpCode, sex, age, price, remark, attention, img)
+        values (#{name}, #{code}, #{helpCode}, #{sex}, #{age}, #{price}, #{remark}, #{attention}, #{img})
+    </insert>
+    <insert id="setRelations">
+        insert into t_setmeal_checkgroup(setmeal_id, checkgroup_id)
+        values (#{setmealId}, #{checkgroupId})
+    </insert>
+    <select id="query" resultType="com.zhouhao.pojo.Setmeal">
+        select *
+        from t_setmeal
+        <where>
+            <if test="queryString != null">
+                name like concat('%',#{queryString},'%')
+                or remark like concat('%',#{queryString},'%')
+            </if>
+        </where>
+        order by id
+    </select>
+    <select id="getAll" resultType="com.zhouhao.pojo.Setmeal">
+        select * from t_setmeal
+    </select>
+    <select id="findById" resultMap="findById">
+        select * from t_setmeal
+        where id = #{id}
+    </select>
+</mapper>
